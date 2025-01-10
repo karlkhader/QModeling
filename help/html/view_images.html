@@ -1,0 +1,106 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   <!--
+This HTML was auto-generated from MATLAB code.
+To make changes, update the MATLAB code and republish this document.
+      --><title>View Parametric Images</title><meta name="generator" content="MATLAB 9.3"><link rel="schema.DC" href="http://purl.org/dc/elements/1.1/"><meta name="DC.date" content="2018-01-04"><meta name="DC.source" content="view_images.m"><style type="text/css">
+html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,font,img,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td{margin:0;padding:0;border:0;outline:0;font-size:100%;vertical-align:baseline;background:transparent}body{line-height:1}ol,ul{list-style:none}blockquote,q{quotes:none}blockquote:before,blockquote:after,q:before,q:after{content:'';content:none}:focus{outine:0}ins{text-decoration:none}del{text-decoration:line-through}table{border-collapse:collapse;border-spacing:0}
+
+html { min-height:100%; margin-bottom:1px; }
+html body { height:100%; margin:0px; font-family:Arial, Helvetica, sans-serif; font-size:10px; color:#000; line-height:140%; background:#fff none; overflow-y:scroll; }
+html body td { vertical-align:top; text-align:left; }
+
+h1 { padding:0px; margin:0px 0px 25px; font-family:Arial, Helvetica, sans-serif; font-size:1.5em; color:#d55000; line-height:100%; font-weight:normal; }
+h2 { padding:0px; margin:0px 0px 8px; font-family:Arial, Helvetica, sans-serif; font-size:1.2em; color:#000; font-weight:bold; line-height:140%; border-bottom:1px solid #d6d4d4; display:block; }
+h3 { padding:0px; margin:0px 0px 5px; font-family:Arial, Helvetica, sans-serif; font-size:1.1em; color:#000; font-weight:bold; line-height:140%; }
+
+a { color:#005fce; text-decoration:none; }
+a:hover { color:#005fce; text-decoration:underline; }
+a:visited { color:#004aa0; text-decoration:none; }
+
+p { padding:0px; margin:0px 0px 20px; }
+img { padding:0px; margin:0px 0px 20px; border:none; }
+p img, pre img, tt img, li img, h1 img, h2 img { margin-bottom:0px; } 
+
+ul { padding:0px; margin:0px 0px 20px 23px; list-style:square; }
+ul li { padding:0px; margin:0px 0px 7px 0px; }
+ul li ul { padding:5px 0px 0px; margin:0px 0px 7px 23px; }
+ul li ol li { list-style:decimal; }
+ol { padding:0px; margin:0px 0px 20px 0px; list-style:decimal; }
+ol li { padding:0px; margin:0px 0px 7px 23px; list-style-type:decimal; }
+ol li ol { padding:5px 0px 0px; margin:0px 0px 7px 0px; }
+ol li ol li { list-style-type:lower-alpha; }
+ol li ul { padding-top:7px; }
+ol li ul li { list-style:square; }
+
+.content { font-size:1.2em; line-height:140%; padding: 20px; }
+
+pre, code { font-size:12px; }
+tt { font-size: 1.2em; }
+pre { margin:0px 0px 20px; }
+pre.codeinput { padding:10px; border:1px solid #d3d3d3; background:#f7f7f7; }
+pre.codeoutput { padding:10px 11px; margin:0px 0px 20px; color:#4c4c4c; }
+pre.error { color:red; }
+
+@media print { pre.codeinput, pre.codeoutput { word-wrap:break-word; width:100%; } }
+
+span.keyword { color:#0000FF }
+span.comment { color:#228B22 }
+span.string { color:#A020F0 }
+span.untermstring { color:#B20000 }
+span.syscmd { color:#B28C00 }
+
+.footer { width:auto; padding:10px 0px; margin:25px 0px 0px; border-top:1px dotted #878787; font-size:0.8em; line-height:140%; font-style:italic; color:#878787; text-align:left; float:none; }
+.footer p { margin:0px; }
+.footer a { color:#878787; }
+.footer a:hover { color:#878787; text-decoration:underline; }
+.footer a:visited { color:#878787; }
+
+table th { padding:7px 5px; text-align:left; vertical-align:middle; border: 1px solid #d6d4d4; font-weight:bold; }
+table td { padding:7px 5px; text-align:left; vertical-align:top; border:1px solid #d6d4d4; }
+
+
+
+
+
+  </style>
+<link href="estilo.css" type="text/css" rel="stylesheet">
+<link rel="icon" type="image/gif" href="animated_favicon1.gif" >
+<script>window.MathJax = { MathML: { extensions: ["mml3.js", "content-mathml.js"]}};</script>
+<script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=MML_HTMLorMML"></script>
+</head><body>
+<div class="Imageholder2">
+<div id="middleDiv"><img style="margin-bottom:0px;width:15%;" src="QM_icon.png" alt="left" /></div>
+</div>
+
+<div class="content"><h1>View Parametric Images</h1><!--introduction--><!--/introduction--><h2>Contents</h2><div><ul><li><a href="#1">How can I see the parametric images obtained?</a></li><li><a href="#2">Can I see more than one image at the same time?</a></li><li><a href="#3">Can I visualize images stored in my computer?</a></li></ul></div><h2 id="1">How can I see the parametric images obtained?</h2><p>Once you have calculated these images, the <i>View Parametric Images</i> panel will be enabled. Select the image from the drop-down list and press the <i>View Image</i> button. The image will be shown in a new window.</p><h2 id="2">Can I see more than one image at the same time?</h2><p>Yes. Each time you push the <i>View Image</i> button, the image selected from the drop-down list will be displayed in a new window.</p><h2 id="3">Can I visualize images stored in my computer?</h2><p>Yes. The option <i>View Image</i> is shown on the <i>QModeling</i> tab. Select it to view any NIfTI or Analyze 3D image you have on your computer.</p><p class="footer"><br>
+
+<div class="imageHolder2">
+<div id="leftDiv"><a href="https://www.uma.es"><img style="width:50%;" src="UMA_icon.png" alt="left" /></a></div>
+<div id="rightDiv"><a href="http://www.fguma.es"><img style="width:50%;" src="FGUMA_icon.png" alt="right" /></a></div>
+<div id="middleDiv"><a href="http://www.uimcimes.es"><img style="width:50%;" src="UIM_CIMES_icon.jpeg" alt="middle" /></a></div>
+</div>
+
+
+</p></div><!--
+##### SOURCE BEGIN #####
+%% View Parametric Images
+%% How can I see the parametric images obtained?
+% Once you have calculated these images, the _View Parametric Images_
+% panel will be enabled. Select the image from the drop-down list
+% and press the _View Image_ button. The image will be shown in a new
+% window. 
+%
+%% Can I see more than one image at the same time?
+% Yes. Each time you push the _View Image_ button, the image selected from
+% the drop-down list will be displayed in a new window.
+%
+%% Can I visualize images stored in my computer?
+% Yes. The option _View Image_ is shown on the _QModeling_ tab. Select it
+% to view any NIfTI or Analyze 3D image you have on your computer.
+%
+##### SOURCE END #####
+--></body></html>

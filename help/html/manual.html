@@ -1,0 +1,185 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   <!--
+This HTML was auto-generated from MATLAB code.
+To make changes, update the MATLAB code and republish this document.
+      --><title>User manual</title><meta name="generator" content="MATLAB 9.3"><link rel="schema.DC" href="http://purl.org/dc/elements/1.1/"><meta name="DC.date" content="2018-01-30"><meta name="DC.source" content="manual.m"><style type="text/css">
+html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,font,img,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td{margin:0;padding:0;border:0;outline:0;font-size:100%;vertical-align:baseline;background:transparent}body{line-height:1}ol,ul{list-style:none}blockquote,q{quotes:none}blockquote:before,blockquote:after,q:before,q:after{content:'';content:none}:focus{outine:0}ins{text-decoration:none}del{text-decoration:line-through}table{border-collapse:collapse;border-spacing:0}
+
+html { min-height:100%; margin-bottom:1px; }
+html body { height:100%; margin:0px; font-family:Arial, Helvetica, sans-serif; font-size:10px; color:#000; line-height:140%; background:#fff none; overflow-y:scroll; }
+html body td { vertical-align:top; text-align:left; }
+
+h1 { padding:0px; margin:0px 0px 25px; font-family:Arial, Helvetica, sans-serif; font-size:1.5em; color:#d55000; line-height:100%; font-weight:normal; }
+h2 { padding:0px; margin:0px 0px 8px; font-family:Arial, Helvetica, sans-serif; font-size:1.2em; color:#000; font-weight:bold; line-height:140%; border-bottom:1px solid #d6d4d4; display:block; }
+h3 { padding:0px; margin:0px 0px 5px; font-family:Arial, Helvetica, sans-serif; font-size:1.1em; color:#000; font-weight:bold; line-height:140%; }
+
+a { color:#005fce; text-decoration:none; }
+a:hover { color:#005fce; text-decoration:underline; }
+a:visited { color:#004aa0; text-decoration:none; }
+
+p { padding:0px; margin:0px 0px 20px; }
+img { padding:0px; margin:0px 0px 20px; border:none; }
+p img, pre img, tt img, li img, h1 img, h2 img { margin-bottom:0px; } 
+
+ul { padding:0px; margin:0px 0px 20px 23px; list-style:square; }
+ul li { padding:0px; margin:0px 0px 7px 0px; }
+ul li ul { padding:5px 0px 0px; margin:0px 0px 7px 23px; }
+ul li ol li { list-style:decimal; }
+ol { padding:0px; margin:0px 0px 20px 0px; list-style:decimal; }
+ol li { padding:0px; margin:0px 0px 7px 23px; list-style-type:decimal; }
+ol li ol { padding:5px 0px 0px; margin:0px 0px 7px 0px; }
+ol li ol li { list-style-type:lower-alpha; }
+ol li ul { padding-top:7px; }
+ol li ul li { list-style:square; }
+
+.content { font-size:1.2em; line-height:140%; padding: 20px; }
+
+pre, code { font-size:12px; }
+tt { font-size: 1.2em; }
+pre { margin:0px 0px 20px; }
+pre.codeinput { padding:10px; border:1px solid #d3d3d3; background:#f7f7f7; }
+pre.codeoutput { padding:10px 11px; margin:0px 0px 20px; color:#4c4c4c; }
+pre.error { color:red; }
+
+@media print { pre.codeinput, pre.codeoutput { word-wrap:break-word; width:100%; } }
+
+span.keyword { color:#0000FF }
+span.comment { color:#228B22 }
+span.string { color:#A020F0 }
+span.untermstring { color:#B20000 }
+span.syscmd { color:#B28C00 }
+
+.footer { width:auto; padding:10px 0px; margin:25px 0px 0px; border-top:1px dotted #878787; font-size:0.8em; line-height:140%; font-style:italic; color:#878787; text-align:left; float:none; }
+.footer p { margin:0px; }
+.footer a { color:#878787; }
+.footer a:hover { color:#878787; text-decoration:underline; }
+.footer a:visited { color:#878787; }
+
+table th { padding:7px 5px; text-align:left; vertical-align:middle; border: 1px solid #d6d4d4; font-weight:bold; }
+table td { padding:7px 5px; text-align:left; vertical-align:top; border:1px solid #d6d4d4; }
+
+
+  </style>
+
+<link href="estilo.css" type="text/css" rel="stylesheet">
+<link rel="icon" type="image/gif" href="animated_favicon1.gif" >
+<script>window.MathJax = { MathML: { extensions: ["mml3.js", "content-mathml.js"]}};</script>
+<script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=MML_HTMLorMML"></script>
+</head><body>
+<div class="Imageholder2">
+<div id="middleDiv"><img style="margin-bottom:0px;width:15%;" src="QM_icon.png" alt="left" /></div>
+</div>
+
+<div class="content"><h1>User manual</h1><!--introduction--><p>This manual explains the capabilities of QModeling, and the way to use it. It is divided in four main sections: <i>Graphical User Interface (GUI)</i>, <i>Implemented models</i>, <i>Command line functions</i> and <i>Include your own model</i>.</p><p>The <i>Graphical User Interface (GUI)</i> section, which is organized in a questions and answers format, has four different subsections according to the four main steps to be followed when using the toolbox. Each of them is carried out by a specific submodule: Data loading and TAC generation; model selection and preprocessing; generation of parametric images and display of parametric images. Thus, QModeling allows generating parametric images for a particular dynamic PET study, by fitting one of the implemented models (SRTM, SRTM2, Patlak or Logan) to the data. Brief information and references about the four compartmental models are included at the <i>Implemented models</i> section.</p><p>You can also fit each of the four compartmental models to multiple studies using the <i>Command line functions</i>. Three command line functions (to load studies, preprocess them and generate whole brain images) are implemented for that purpose.</p><p>At the <i>Include your own model</i> section, it is described how to include in the QModeling software the implementation of a new kinetic model.</p><!--/introduction--><h2>Contents</h2><div><ul><li><a href="#1">Graphical User Interface (GUI)</a></li><li><a href="#2">Implemented models</a></li><li><a href="#3">Command line functions</a></li><li><a href="#4">Include your own model</a></li></ul></div><h2 id="1">Graphical User Interface (GUI)</h2><p>The main window is divided into six different parts or subframes. The four of them placed at the right and the bottom of the window represent the four submodules of the toolbox. The other two show the graphical and numerical results, at the right  of the main window. When the program is started, all the subframes are inactive except for the first one. After introducing the relevant input data, the following frames will be activated.</p><div><ul><li><a href="load_data.html"><b>Load Data</b></a></li></ul></div><div><ul><li><a href="modeling.html"><b>Model selection &amp; Preprocessing</b></a></li></ul></div><div><ul><li><a href="pixel_calculation.html"><b>Pixel-wise Calculation</b></a></li></ul></div><div><ul><li><a href="view_images.html"><b>View Parametric Images</b></a></li></ul></div><p>In this <a href="flowchart_QModeling.pdf" target="_blank"><i>flowchart</i></a> you can see some pictures of the different steps.</p><h2 id="2">Implemented models</h2><div><ul><li><a href="help_SRTM.html"><b>SRTM</b></a></li><li><a href="help_Carson.html"><b>SRTM2</b></a></li><li><a href="help_patlak.html"><b>Patlak Reference</b></a></li><li><a href="help_LoganPlot.html"><b>Logan Plot</b></a></li></ul></div><h2 id="3">Command line functions</h2><p>In order to fit one of the four kinetic models included in <i>QModeling</i> to multiple studies, three main command line functions have been implemented:</p><p><b><i>QModeling_generateTACs.m</i></b>: To load multiple PET studies (each one with a reference and a target mask) and to obtain the TACs from all of them.</p><p><b><i>QModeling_preprocessTACs.m</i></b>: From the reference and target TACs of multiple studies, this function allows the user to fit one of the four kinetic models.</p><p><b><i>QModeling_parametric_images.m</i></b>: To obtain the parametric images from the fitting of one of the kinetic models implemented to multiple PET studies (pixel-wise calculation).</p><p>To obtain more information about one of these functions, type <i>help</i> and the name of the function at the Matlab command window. Furthermore, a <i>demo script</i> is included at the command line folder of the toolbox to show the user how the command line could be run. It is called <i>demoQModeling.m</i> and typing <i>help demoQModeling.m</i> at the command window, more information will be displayed. Also, there are many comments on the script to help the user to understand all the steps.</p><h2 id="4">Include your own model</h2><p>The aim of this section is to provide users with the necessary information to modify the QModeling software, in order to include in it additional kinetic models. These instructions only refer to the implementation of this new function via command line. Users are welcome to contact the authors for any further advice, of if they are interested in including a model in the GUI, after developing it for the command line. This information has not been included in this manual for the moment, as adding a new model to the GUI requires modifying some more routines in the package.</p><p>A new Matlab function has to be developed, under the name <i>QModeling_newModel_Name</i>. Here, <i>newModel_Name</i> is the name that you want to give to the model. The three already implemented functions (<i>QModeling_SRTM.m</i>, <i>QModeling_SRTM2.m</i> and <i>QModeling_PatlakRef.m</i>) can be taken as examples. The new function should be run from <i>QModeling_preprocessTACs.m</i> and from <i>QModeling_parametric_images.m</i>. With the first one, the fit will be done at a ROI level. The second one will yield parametric images, after a voxel level fit.</p><div><ul><li><a href="QM_preprocTACs.html"><b>QModeling_preprocessTACs.m</b></a></li></ul></div><div><ul><li><a href="QM_parametImages.html"><b>QModeling_parametric_images.m</b></a></li></ul></div><p class="footer"><br>
+
+<div class="imageHolder2">
+<div id="leftDiv"><a href="https://www.uma.es"><img style="width:50%;" src="UMA_icon.png" alt="left" /></a></div>
+<div id="rightDiv"><a href="http://www.fguma.es"><img style="width:50%;" src="FGUMA_icon.png" alt="right" /></a></div>
+<div id="middleDiv"><a href="http://www.uimcimes.es"><img style="width:50%;" src="UIM_CIMES_icon.jpeg" alt="middle" /></a></div>
+</div>
+
+</p></div><!--
+##### SOURCE BEGIN #####
+%% User manual
+% 
+% This manual explains the capabilities of QModeling, and the way to use
+% it. It is divided in four main sections: _Graphical User Interface (GUI)_, 
+% _Implemented models_, _Command line functions_ and _Include your own model_.
+% 
+% The _Graphical User Interface (GUI)_ section, which is organized in a questions
+% and answers format, has four different subsections according to the four main 
+% steps to be followed when using the toolbox. Each of them is carried out 
+% by a specific submodule: Data loading and TAC generation; 
+% model selection and preprocessing; generation of parametric
+% images and display of parametric images. Thus, QModeling allows 
+% generating parametric images for a particular dynamic PET study, by 
+% fitting one of the implemented models (SRTM, SRTM2, Patlak or Logan) to the data.
+% Brief information and references about the four compartmental models
+% are included at the _Implemented models_ section.
+% 
+% You can also fit each of the four compartmental models to multiple studies 
+% using the _Command line functions_. Three command line functions (to load studies, 
+% preprocess them and generate whole brain images) are implemented for 
+% that purpose. 
+%
+% At the _Include your own model_ section, it is described how to include
+% in the QModeling software the implementation of a new kinetic model.
+%% Graphical User Interface (GUI)
+% The main window is divided into six different parts or subframes. The four 
+% of them placed at the right and the bottom of the window represent the 
+% four submodules of the toolbox. The other two show the graphical  
+% and numerical results, at the right  of the main window. 
+% When the program is started, all the subframes are inactive except for
+% the first one. After introducing the relevant input data, the following
+% frames will be activated.
+%
+% * <matlab:open('load_data.html') *Load Data*> 
+%
+% * <matlab:open('modeling.html') *Model selection & Preprocessing*> 
+%
+% * <matlab:open('pixel_calculation.html') *Pixel-wise Calculation*>
+%
+% * <matlab:open('view_images.html') *View Parametric Images*>
+%
+% In this <http://www.mathworks.com _flowchart_> you can see some pictures of the different steps.
+%% Implemented models
+% * <matlab:open('help_SRTM.html') *SRTM*>
+% * <matlab:open('help_Carson.html') *SRTM2*>
+% * <matlab:open('help_patlak.html') *Patlak Reference*>
+% * <matlab:open('help_LoganPlot.html') *Logan Plot*>
+%% Command line functions
+% In order to fit one of the four kinetic models included in _QModeling_
+% to multiple studies, three main command line functions have been
+% implemented:
+%
+% *_QModeling_generateTACs.m_*: To load multiple PET studies (each one 
+% with a reference and a target mask) and to obtain the TACs from all of
+% them.
+%
+% *_QModeling_preprocessTACs.m_*: From the reference and target TACs of
+% multiple studies, this function allows the user to fit one of the four kinetic
+% models. 
+%
+% *_QModeling_parametric_images.m_*: To obtain the parametric images from 
+% the fitting of one of the kinetic models implemented to multiple PET 
+% studies (pixel-wise calculation).
+% 
+% To obtain more information about one of these functions, type _help_ and 
+% the name of the function at the Matlab command window.
+% Furthermore, a _demo script_ is included at the command line folder of the toolbox
+% to show the user how the command line could be run. It is called _demoQModeling.m_
+% and typing _help demoQModeling.m_ at the command window, more information
+% will be displayed. Also, there are many comments on the script to help
+% the user to understand all the steps.
+%% Include your own model
+% The aim of this section is to provide users with the necessary
+% information to modify the QModeling software, in order to include in it
+% additional kinetic models. These instructions only refer to the
+% implementation of this new function via command line. Users are welcome
+% to contact the authors for any further advice, of if they are interested
+% in including a model in the GUI, after developing it
+% for the command line. This information has not been included in this
+% manual for the moment, as adding a new model to the GUI requires
+% modifying some more routines in the package.
+%   
+% A new Matlab function has to be developed, under the name
+% _QModeling_newModel_Name_. Here, _newModel_Name_ is the name that you
+% want to give to the model. The three already implemented functions
+% (_QModeling_SRTM.m_, _QModeling_SRTM2.m_ and _QModeling_PatlakRef.m_) can be
+% taken as examples. The new function should be run from
+% _QModeling_preprocessTACs.m_ and from _QModeling_parametric_images.m_. With
+% the first one, the fit will be done at a ROI level. The second one will
+% yield parametric images, after a voxel level fit.
+%
+% * <matlab:open('QM_preprocTACs.html') *QModeling_preprocessTACs.m*>
+%
+% * <matlab:open('QM_parametImages.html') *QModeling_parametric_images.m*>
+
+
+
+##### SOURCE END #####
+--></body></html>

@@ -1,0 +1,190 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   <!--
+This HTML was auto-generated from MATLAB code.
+To make changes, update the MATLAB code and republish this document.
+      --><title>Load Data</title><meta name="generator" content="MATLAB 9.3"><link rel="schema.DC" href="http://purl.org/dc/elements/1.1/"><meta name="DC.date" content="2018-01-04"><meta name="DC.source" content="load_data.m"><style type="text/css">
+html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,font,img,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td{margin:0;padding:0;border:0;outline:0;font-size:100%;vertical-align:baseline;background:transparent}body{line-height:1}ol,ul{list-style:none}blockquote,q{quotes:none}blockquote:before,blockquote:after,q:before,q:after{content:'';content:none}:focus{outine:0}ins{text-decoration:none}del{text-decoration:line-through}table{border-collapse:collapse;border-spacing:0}
+
+html { min-height:100%; margin-bottom:1px; }
+html body { height:100%; margin:0px; font-family:Arial, Helvetica, sans-serif; font-size:10px; color:#000; line-height:140%; background:#fff none; overflow-y:scroll; }
+html body td { vertical-align:top; text-align:left; }
+
+h1 { padding:0px; margin:0px 0px 25px; font-family:Arial, Helvetica, sans-serif; font-size:1.5em; color:#d55000; line-height:100%; font-weight:normal; }
+h2 { padding:0px; margin:0px 0px 8px; font-family:Arial, Helvetica, sans-serif; font-size:1.2em; color:#000; font-weight:bold; line-height:140%; border-bottom:1px solid #d6d4d4; display:block; }
+h3 { padding:0px; margin:0px 0px 5px; font-family:Arial, Helvetica, sans-serif; font-size:1.1em; color:#000; font-weight:bold; line-height:140%; }
+
+a { color:#005fce; text-decoration:none; }
+a:hover { color:#005fce; text-decoration:underline; }
+a:visited { color:#004aa0; text-decoration:none; }
+
+p { padding:0px; margin:0px 0px 20px; }
+img { padding:0px; margin:0px 0px 20px; border:none; }
+p img, pre img, tt img, li img, h1 img, h2 img { margin-bottom:0px; } 
+
+ul { padding:0px; margin:0px 0px 20px 23px; list-style:square; }
+ul li { padding:0px; margin:0px 0px 7px 0px; }
+ul li ul { padding:5px 0px 0px; margin:0px 0px 7px 23px; }
+ul li ol li { list-style:decimal; }
+ol { padding:0px; margin:0px 0px 20px 0px; list-style:decimal; }
+ol li { padding:0px; margin:0px 0px 7px 23px; list-style-type:decimal; }
+ol li ol { padding:5px 0px 0px; margin:0px 0px 7px 0px; }
+ol li ol li { list-style-type:lower-alpha; }
+ol li ul { padding-top:7px; }
+ol li ul li { list-style:square; }
+
+.content { font-size:1.2em; line-height:140%; padding: 20px; }
+
+pre, code { font-size:12px; }
+tt { font-size: 1.2em; }
+pre { margin:0px 0px 20px; }
+pre.codeinput { padding:10px; border:1px solid #d3d3d3; background:#f7f7f7; }
+pre.codeoutput { padding:10px 11px; margin:0px 0px 20px; color:#4c4c4c; }
+pre.error { color:red; }
+
+@media print { pre.codeinput, pre.codeoutput { word-wrap:break-word; width:100%; } }
+
+span.keyword { color:#0000FF }
+span.comment { color:#228B22 }
+span.string { color:#A020F0 }
+span.untermstring { color:#B20000 }
+span.syscmd { color:#B28C00 }
+
+.footer { width:auto; padding:10px 0px; margin:25px 0px 0px; border-top:1px dotted #878787; font-size:0.8em; line-height:140%; font-style:italic; color:#878787; text-align:left; float:none; }
+.footer p { margin:0px; }
+.footer a { color:#878787; }
+.footer a:hover { color:#878787; text-decoration:underline; }
+.footer a:visited { color:#878787; }
+
+table th { padding:7px 5px; text-align:left; vertical-align:middle; border: 1px solid #d6d4d4; font-weight:bold; }
+table td { padding:7px 5px; text-align:left; vertical-align:top; border:1px solid #d6d4d4; }
+
+
+
+  </style>
+
+<link href="estilo.css" type="text/css" rel="stylesheet">
+<link rel="icon" type="image/gif" href="animated_favicon1.gif" >
+<script>window.MathJax = { MathML: { extensions: ["mml3.js", "content-mathml.js"]}};</script>
+<script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=MML_HTMLorMML"></script>
+</head><body>
+<div class="Imageholder2">
+<div id="middleDiv"><img style="margin-bottom:0px;width:15%;" src="QM_icon.png" alt="left" /></div>
+</div>
+
+<div class="content"><h1>Load Data</h1><!--introduction--><!--/introduction--><h2>Contents</h2><div><ul><li><a href="#1">How can I load a study? In which format?</a></li><li><a href="#2">What happens if my study does not have start and end frame times?</a></li><li><a href="#3">Can I change or save the frame times of the loaded study? How can I do this?</a></li><li><a href="#4">What is the format of the times file?</a></li><li><a href="#5">Can I check the times consistency? How can I do this?</a></li><li><a href="#6">How can I load a mask? What are the accepted formats?</a></li><li><a href="#7">What is the format of the mask names file?</a></li><li><a href="#8">Can I directly load the time-activity curves?</a></li><li><a href="#9">Can I generate a mask for a loaded PET study? How can I do this?</a></li><li><a href="#10">How can I see the TACs?</a></li><li><a href="#11">Can I see and save the numerical values of the TACs? Can I save the plotted TACs?</a></li><li><a href="#12">Can I change the reference and interest region?</a></li></ul></div><h2 id="1">How can I load a study? In which format?</h2><p>To load a dynamic PET study, press the <i>Load Study</i> button. A new auxiliary window will open, to allow searching and loading the study from your folder structure. The supported formats are <i>Analyze (hdr/img)</i> or <i>NIfTI</i>(nii). Single-file (multiframe) or multiple-file (one file for each frame of the PET study) studies can be loaded. Once the file/s are chosen, press the <i>Done</i> button and the PET study will be loaded.</p><h2 id="2">What happens if my study does not have start and end frame times?</h2><p>Nothing. A warning window will appear, and default start and end times will be used, unless you specify values for your scan. See next question on how to specify these values.</p><h2 id="3">Can I change or save the frame times of the loaded study? How can I do this?</h2><p>Yes. You can do this by clicking on the <i>Change Times</i> button. A new auxiliary window will open. Then, you can change or save current times, load new times from a file or check the consistency of the time values.</p><h2 id="4">What is the format of the times file?</h2><p>You can load new frame times from a file. This file must have the following format:</p><div><ul><li>One row for each <i>frame</i> of the study.</li><li>One column for the starting times and one for the ending times</li><li>Units must be seconds</li></ul></div><p>In the first line, the starting and ending times of the first <i>frame</i> of the study, in the second line, the starting and ending times of the second <i>frame</i> of the study, and so on.</p><h2 id="5">Can I check the times consistency? How can I do this?</h2><p>Yes, there are two ways:</p><div><ul><li>By the <i>Change Times</i> button on the main window.</li><li>By the toolbar of QModeling: Click <i>QModeling-&gt;Configuration</i> and check the <i>Consistency check</i> option. With this, the times consistency will be automatically checked. A warning will appear if they are not consistent.</li></ul></div><h2 id="6">How can I load a mask? What are the accepted formats?</h2><p>To load a mask with regions of interest (ROIs) press the <i>Load Mask/TACs</i> button.  It must include only one ROI for the reference region, and an indefinite number of ROIs representing specific-uptake areas for the preprocessing step. Only one of these shall be used for the preprocessing. When the button is pressed, a new auxiliary window opens, which allows searching and loading the mask from the folder structure. The allowed formats are <i>Analyze (hdr/img)</i> or <i>NIfTI (nii)</i>. All the ROIs must be included in one single file. A numeric index (an integer) specifies each ROI. Clicking the <i>Done</i> button, the mask will be loaded. The name of the ROI associated with each numeric index can be specified in a plain text file. If such a file exists at the same path and with the same name as the mask, it will be automatically loaded*. If not, a new auxiliary window will appear asking for that text file*. If no text file is chosen or detected, the TACs associated to each mask will receive  generic names (<i>TAC1</i>, <i>TAC2</i>, ...) with numeric indexes following a correlative order with the indexes in the mask.</p><p>*Specific format is required. Please, go to the "What is the format of the mask names file?" question.</p><h2 id="7">What is the format of the mask names file?</h2><p>It must be a plain text file including the different regions on different rows. The name of each region must be at the first column and the corresponding integer at a second column. In order to be automatically loaded by the application, this text file and the mask file must be at the same path and have the same name. If they are in separate folders, the program will automatically open a window asking for the mask names file.</p><h2 id="8">Can I directly load the time-activity curves?</h2><p>Yes. Instead of using a mask file, you can directly load the time-activity curves of the region(s) of interest and the reference region. The accepted formats are .txt, .xls, .xlsx and .mat. If a .mat file is used, it must contain a variable called <i>TACs_names</i> with the names of the regions and another one called <i>TACs</i> with the values of each region as columns. If the file is in .txt, .xls, or .xlsx format, there must be a first row with the names of the regions.  The following rows will contain the values of the TACs for each frame. Each column will represent the TAC of a specific region. In the .txt case, you have to split the columns by the tabulator key. At /QModeling/help/template_TACs you have a template of TACs file for each format option.</p><h2 id="9">Can I generate a mask for a loaded PET study? How can I do this?</h2><p>Yes. The <i>WFU_PickAtlas toolbox</i> for SPM must be downloaded (<a href="http://www.nitrc.org/projects/wfu_pickatlas/">http://www.nitrc.org/projects/wfu_pickatlas/</a> or <a href="http://fmri.wfubmc.edu/software/PickAtlas">http://fmri.wfubmc.edu/software/PickAtlas</a>) and installed to enable <i>Create mask with pickatlas</i> button in the main window.</p><h2 id="10">How can I see the TACs?</h2><p>Once you have succesfully loaded the PET study and the mask file, you can obtain the TACs by clicking on the <i>Prepare TACs</i> button. If the time-activity curves have been directly loaded, the same button has to be pressed. If everything  is correct, the TACs will be displayed in the <i>Plots</i> panel of the main window; otherwise, an error message will be shown.</p><h2 id="11">Can I see and save the numerical values of the TACs? Can I save the plotted TACs?</h2><p>Yes. Right-button click on the <i>Plots</i> panel.</p><h2 id="12">Can I change the reference and interest region?</h2><p>Yes, you can choose whatever you want on the appropriate drop-down list.</p><p class="footer"><br>
+
+<div class="imageHolder2">
+<div id="leftDiv"><a href="https://www.uma.es"><img style="width:50%;" src="UMA_icon.png" alt="left" /></a></div>
+<div id="rightDiv"><a href="http://www.fguma.es"><img style="width:50%;" src="FGUMA_icon.png" alt="right" /></a></div>
+<div id="middleDiv"><a href="http://www.uimcimes.es"><img style="width:50%;" src="UIM_CIMES_icon.jpeg" alt="middle" /></a></div>
+</div>
+
+</p></div><!--
+##### SOURCE BEGIN #####
+%% Load Data
+% 
+%% How can I load a study? In which format? 
+% To load a dynamic PET study, press the _Load Study_ button. A new auxiliary window
+% will open, to allow searching and loading the study from your folder structure. 
+% The supported formats are _Analyze (hdr/img)_ or _NIfTI_(nii). Single-file
+% (multiframe) or multiple-file (one file for each frame of the PET
+% study) studies can be loaded. Once the file/s are chosen, press 
+% the _Done_ button and the PET study will be loaded.
+%
+%% What happens if my study does not have start and end frame times?
+% Nothing. A warning window will appear, and default start and end times will
+% be used, unless you specify values for your scan. See next question on
+% how to specify these values.
+%
+%% Can I change or save the frame times of the loaded study? How can I do this?
+% Yes. You can do this by clicking on the _Change Times_ button. A new auxiliary window will open. Then, 
+% you can change or save current times, load new times from a file or check
+% the consistency of the time values.
+%
+%% What is the format of the times file?
+% You can load new frame times from a file. This file must have the following format:
+% 
+% * One row for each _frame_ of the study.
+% * One column for the starting times and one for the ending times
+% * Units must be seconds
+%
+% In the first line, the starting and ending times of the first _frame_ of the
+% study, in the second line, the starting and ending times of the second _frame_
+% of the study, and so on.
+%
+%% Can I check the times consistency? How can I do this?
+% Yes, there are two ways:
+%
+% * By the _Change Times_ button on the main window.
+% * By the toolbar of QModeling: Click _QModeling->Configuration_ and check
+% the _Consistency check_ option. With this, the times consistency will be
+% automatically checked. A warning will appear if they are not consistent.
+%
+%% How can I load a mask? What are the accepted formats?
+% To load a mask with regions of interest (ROIs) 
+% press the _Load Mask/TACs_ button.  It must include only one ROI for the
+% reference region, and an indefinite number of ROIs representing
+% specific-uptake areas for the preprocessing step. Only one of these shall
+% be used for the preprocessing.
+% When the button is pressed, a new auxiliary window opens, 
+% which allows searching and loading the mask from the 
+% folder structure. The allowed formats are _Analyze (hdr/img)_ or _NIfTI
+% (nii)_. All the ROIs must be included in one single file. A numeric index
+% (an integer) specifies each ROI. Clicking the _Done_ button, the mask
+% will be loaded. 
+% The name of the ROI associated with each numeric index can be specified
+% in a plain text file. If such a file exists at the same path and with the 
+% same name as the mask, it will be automatically loaded*. If not, 
+% a new auxiliary window will appear asking for that text file*. 
+% If no text file is chosen or detected, the TACs associated to each mask 
+% will receive  generic names (_TAC1_, _TAC2_, ...) with numeric indexes following a correlative order with the indexes in the mask.
+%
+%
+% *Specific format is required. Please, go to the "What is the format of the mask names file?" question.
+%% What is the format of the mask names file?
+% It must be a plain text file including the different regions on different
+% rows. The name of each region must be at the first column and the corresponding integer
+% at a second column. In order to be automatically loaded by the
+% application, this text file and the mask file must be at the same path and have the same name.
+% If they are in separate folders, the program will automatically open a window asking for the mask names
+% file.
+%
+%% Can I directly load the time-activity curves?
+% Yes. Instead of using a mask file, you can directly load the time-activity
+% curves of the region(s) of interest and the reference region. The accepted
+% formats are .txt, .xls, .xlsx and .mat. If a .mat file is used, it must
+% contain a variable called _TACs_names_ with the names of the regions and
+% another one called _TACs_ with the values of each region as columns. 
+% If the file is in .txt, .xls, or .xlsx format, there must be a first row with the names of
+% the regions.  The following rows will contain the values of the TACs for each
+% frame. Each column will represent the TAC of a specific region.
+% In the .txt case, you have to split the columns by the tabulator key.
+% At /QModeling/help/template_TACs you have a template of TACs file for
+% each format option.
+
+%% Can I generate a mask for a loaded PET study? How can I do this?
+% Yes. The _WFU_PickAtlas toolbox_ for SPM must be downloaded
+% (http://www.nitrc.org/projects/wfu_pickatlas/ or
+% http://fmri.wfubmc.edu/software/PickAtlas) and installed to enable _Create
+% mask with pickatlas_ button in the main window.
+% 
+%% How can I see the TACs?
+% Once you have succesfully loaded the PET study and the mask file, you can
+% obtain the TACs by clicking on the _Prepare TACs_ button. 
+% If the time-activity curves have been directly loaded, the same button has to be pressed. 
+% If everything  is correct, the TACs will be displayed 
+% in the _Plots_ panel of the main window; otherwise, an error message will
+% be shown.
+%
+%% Can I see and save the numerical values of the TACs? Can I save the plotted TACs?
+% Yes. Right-button click on the _Plots_ panel.
+%
+%% Can I change the reference and interest region?
+% Yes, you can choose whatever you want on the appropriate drop-down list.
+
+##### SOURCE END #####
+--></body></html>

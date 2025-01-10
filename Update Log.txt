@@ -1,0 +1,147 @@
+ENGLISH
+---------------------------------------------------------------------------------------
+Minimum Requirements: 
+
+- MATLAB R14-R2013b with SPM 8 / MATLAB R2015a with SPM12
+- 38 MB of free memory. 
+
+Update v2.1 (June, 2020)
+-Posible NaNs were removed from mean calculation in the generation of TACs
+
+Update v2.0 (July, 2018)
+- Added a new model: Two Tissue compartmental model (2TCM)
+- Improvement of the "View values" function
+
+Update v1.9 (May 24, 2018)
+- Bug fixed: "Create mask with wfu_pickatlas" buttom
+- New measures of the goodness of fit at the preprocessing step
+- Added a new buttom to save preprocessing results
+
+Update v1.8 (January 5, 2018)
+- Added a new model: LoganPlot
+- Minor changes at the command line functions
+- Added a demo to show how to run the command line functions
+- New section at the user manual: how to include your own model 
+
+Update v1.7 (November 30, 2017)
+- Added the possibility to load directly the TACs instead of the mask file 
+- Updates of the user manual
+- Improvement of errors control
+
+Update v1.6.3 (September 22, 2017)
+- Improvement of error messages at the log file
+- Bug fixed: at the goodness of fit estimation (SRTM2 model with k2' not selected)
+
+Update v1.6.2 (August 29, 2017)
+- User manual update
+- Bug fixes
+
+Update v1.6.1 (October 3, 2016)
+- It shows statistics of goodness of fit in Results
+
+Update v1.6 (April 28, 2016)
+- To run functions from Command Window
+
+Update v1.5 (March 16, 2016)
+- It includes a log file where the main activity is written.
+
+Update v1.3 (October 25, 2015)
+- Improvement in the efficiency of parametric images calculation of SRTM model
+
+Update v1.2.1 (January 30, 2015):
+- Admit visualization of parametric images without standard orientation.
+- The parametric images conserve the origin voxel of study.
+- Added three color scales (Cold, Rainbow and UCLA) to View Image.
+
+Installation: 
+
+1. Unzip QModeling.zip.
+2. Copy the folder QModeling inside SPM in the folder: C: \ ... \spm8\toolbox\ 
+3. Finish! Start SPM -> PET, and select QModeling in the toolbox section.
+
+Enjoy it!!!
+
+---------------------------------------------------------------------------------------
+ESPAÑOL
+---------------------------------------------------------------------------------------
+
+Requerimientos mínimos:
+
+- MATLAB R14-R2013b con SPM 8 / MATLAB R2015a con SPM12
+- 38 MB libres.
+
+Novedades v2.0 (Julio de 2018)
+- Añadido un nuevo modelo: Two Tissue Compartmental Model (2TCM)
+- Mejoras en la función "View values"
+
+Novedades v1.9 (24 de mayo de 2018)
+- Corregido un pequeño error asociado al botón "Create mask with wfu_pickatlas"
+- Incluidas nuevas medidas de la bondad del ajuste para el preprocesado
+- Agregado un nuevo botón para guardar los resultados del preprocesado
+
+Novedades v1.8 (5 de enero de 2018)
+- Añadido un nuevo modelo: LoganPlot
+- Pequeños cambios en las funciones para trabajar por línea de comandos
+- Añadido una demo para mostrar como trabajar por línea de comandos
+- Añadida nueva sección al manual de usuario: "how to include your own model"
+
+Novedades v1.7 (30 de Noviembre de 2017)
+- Añadida la posibilidad de cargar directamente las TACs en lugar del archivo de máscaras
+- Actualizaciones en el manual
+- Mejora del control de errores 
+
+Novedades v1.6.3 (22 de septiembre de 2017)
+- Mejora de la información de errores dada en el registro de actividad
+- Corrección de errores en el cálculo de la bondad de la ajuste del modelo SRTM2 con k2' no seleccionado
+
+Novedades v1.6.2 (29 de agosto de 2017)
+- Actualización del manual
+- Reparación de errores
+
+Novedades v1.6.1 (3 de octubre de 2016)
+- En los Resultados del ajuste se muestran estadísticos de la bondad del ajuste
+
+Novedades v1.6 (28 de abril de 2016)
+- Ejecutar funciones desde la ventana de comandos
+
+Novedades v1.5 (16 de marzo de 2016)
+- Se realiza y almacena un registro de la actividad principal realizada con QModeling
+
+Novedades v1.3 (25 de octubre de 2015)
+- Mayor eficiencia en la generación de imágenes paramétricas en el modelo compartimental STRM
+
+Novedades v1.2.1 (30 de enero de 2015):
+- Admite visualización de imágenes paramétricas sin orientación estándar.
+- Las imágenes paramétricas conservan el vóxel origen del estudio.
+- Añadidas tres escalas de colores (Cold, Rainbow y UCLA) al Visualizador de imágenes.
+
+Instalación:
+
+1. Descomprima QModeling.zip.
+2. Copie la carpeta QModeling dentro de SPM en la carpeta: C:\ ... \spm8\toolbox\
+3. Ya estÁ listo. Arranque SPM -> PET y seleccione QModeling en la sección de toolbox.
+
+A disfrutar!!!
+
+---------------------------------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

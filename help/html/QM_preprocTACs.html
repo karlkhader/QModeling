@@ -1,0 +1,172 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   <!--
+This HTML was auto-generated from MATLAB code.
+To make changes, update the MATLAB code and republish this document.
+      --><title>QModeling_preprocessTACs.m</title><meta name="generator" content="MATLAB 9.3"><link rel="schema.DC" href="http://purl.org/dc/elements/1.1/"><meta name="DC.date" content="2018-01-04"><meta name="DC.source" content="QM_preprocTACs.m"><style type="text/css">
+html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,font,img,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td{margin:0;padding:0;border:0;outline:0;font-size:100%;vertical-align:baseline;background:transparent}body{line-height:1}ol,ul{list-style:none}blockquote,q{quotes:none}blockquote:before,blockquote:after,q:before,q:after{content:'';content:none}:focus{outine:0}ins{text-decoration:none}del{text-decoration:line-through}table{border-collapse:collapse;border-spacing:0}
+
+html { min-height:100%; margin-bottom:1px; }
+html body { height:100%; margin:0px; font-family:Arial, Helvetica, sans-serif; font-size:10px; color:#000; line-height:140%; background:#fff none; overflow-y:scroll; }
+html body td { vertical-align:top; text-align:left; }
+
+h1 { padding:0px; margin:0px 0px 25px; font-family:Arial, Helvetica, sans-serif; font-size:1.5em; color:#d55000; line-height:100%; font-weight:normal; }
+h2 { padding:0px; margin:0px 0px 8px; font-family:Arial, Helvetica, sans-serif; font-size:1.2em; color:#000; font-weight:bold; line-height:140%; border-bottom:1px solid #d6d4d4; display:block; }
+h3 { padding:0px; margin:0px 0px 5px; font-family:Arial, Helvetica, sans-serif; font-size:1.1em; color:#000; font-weight:bold; line-height:140%; }
+
+a { color:#005fce; text-decoration:none; }
+a:hover { color:#005fce; text-decoration:underline; }
+a:visited { color:#004aa0; text-decoration:none; }
+
+p { padding:0px; margin:0px 0px 20px; }
+img { padding:0px; margin:0px 0px 20px; border:none; }
+p img, pre img, tt img, li img, h1 img, h2 img { margin-bottom:0px; } 
+
+ul { padding:0px; margin:0px 0px 20px 23px; list-style:square; }
+ul li { padding:0px; margin:0px 0px 7px 0px; }
+ul li ul { padding:5px 0px 0px; margin:0px 0px 7px 23px; }
+ul li ol li { list-style:decimal; }
+ol { padding:0px; margin:0px 0px 20px 0px; list-style:decimal; }
+ol li { padding:0px; margin:0px 0px 7px 23px; list-style-type:decimal; }
+ol li ol { padding:5px 0px 0px; margin:0px 0px 7px 0px; }
+ol li ol li { list-style-type:lower-alpha; }
+ol li ul { padding-top:7px; }
+ol li ul li { list-style:square; }
+
+.content { font-size:1.2em; line-height:140%; padding: 20px; }
+
+pre, code { font-size:12px; }
+tt { font-size: 1.2em; }
+pre { margin:0px 0px 20px; }
+pre.codeinput { padding:10px; border:1px solid #d3d3d3; background:#f7f7f7; }
+pre.codeoutput { padding:10px 11px; margin:0px 0px 20px; color:#4c4c4c; }
+pre.error { color:red; }
+
+@media print { pre.codeinput, pre.codeoutput { word-wrap:break-word; width:100%; } }
+
+span.keyword { color:#0000FF }
+span.comment { color:#228B22 }
+span.string { color:#A020F0 }
+span.untermstring { color:#B20000 }
+span.syscmd { color:#B28C00 }
+
+.footer { width:auto; padding:10px 0px; margin:25px 0px 0px; border-top:1px dotted #878787; font-size:0.8em; line-height:140%; font-style:italic; color:#878787; text-align:left; float:none; }
+.footer p { margin:0px; }
+.footer a { color:#878787; }
+.footer a:hover { color:#878787; text-decoration:underline; }
+.footer a:visited { color:#878787; }
+
+table th { padding:7px 5px; text-align:left; vertical-align:middle; border: 1px solid #d6d4d4; font-weight:bold; }
+table td { padding:7px 5px; text-align:left; vertical-align:top; border:1px solid #d6d4d4; }
+
+
+
+  </style>
+
+<link href="estilo.css" type="text/css" rel="stylesheet">
+<link rel="icon" type="image/gif" href="animated_favicon1.gif" >
+<script>window.MathJax = { MathML: { extensions: ["mml3.js", "content-mathml.js"]}};</script>
+<script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=MML_HTMLorMML"></script>
+</head><body>
+<div class="Imageholder2">
+<div id="middleDiv"><img style="margin-bottom:0px;width:15%;" src="QM_icon.png" alt="left" /></div>
+</div>
+
+<div class="content"><h1><i>QModeling_preprocessTACs.m</i></h1><!--introduction--><p>The common input parameters of this function are:</p><div><ul><li><i>TACsfile</i>: Path to .txt file containing the TACs to be analyzed. This file must be organized as follows. The first row must contain the mid-times of each frame. The following rows are organized in pairs, each pair corresponding to a different PET study. The first row of each pair contains the TACs of the reference region. The second row in the pair contains the TAC of the region of interest of the same PET study.</li></ul></div><div><ul><li><i>TimeTable</i>: Path to a .txt file containing the start and end times for each frame.</li></ul></div><div><ul><li><i>save_path</i>: Path to a directory where the results will be saved. If the path is "d", the current directory will be used.</li></ul></div><div><ul><li><i>model</i>: A string indicating the name of the selected model. Throughout this manual, the new model bo be included will be called "newModel_Name".</li></ul></div><div><ul><li><i>parameters</i>: A vector containing the minimum information required to preprocess the selected model. Its length and values will depend on the model.</li></ul></div><p>Near the end of the script we have written a few code lines and suggestions on the way to implement the new model step by step:</p><!--/introduction--><h2>Contents</h2><div><ul><li><a href="#1">STEP 1: Include your model</a></li><li><a href="#2">STEP 2: Check input parameters</a></li><li><a href="#3">STEP 3: Call your own model function</a></li><li><a href="#4">STEP 4: Save the results</a></li></ul></div><h2 id="1">STEP 1: Include your model</h2><p><div class="Imageholder2"><img style="width:90%;" src="../figures/Figure1_preproc.png" alt="left" /></div> Change the <i>newModel_Name</i> text by the name you will give to your model.</p><h2 id="2">STEP 2: Check input parameters</h2><p><div class="Imageholder2"><img style="width:75%;" src="../figures/Figure2_preproc.png" alt="left" /></div> As an option, you could include a check for the number of input parameters, to make sure that it coincides with the number of parameters your model needs. It would also be useful to verify that the values are correct (non-negative values, between the allowed maximum and minimum,...). In that case, the program should display the values of the input parameters like it is done with the implemented models.</p><h2 id="3">STEP 3: Call your own model function</h2><p><div class="Imageholder2"><img style="width:100%;" src="../figures/Figure3_preproc.png" alt="left" /></div> At the start of the script, some variables are created. In this step, you will need the following ones:</p><div><ul><li><b><i>data</i></b>: it contains the <i>TACs</i> loaded from the <i>TACsfile</i> input file.</li></ul></div><div><ul><li><b><i>num_sim</i></b>: it is the number of studies to preprocess.</li></ul></div><div><ul><li><b><i>times</i></b>: it contains the start and end times of each frame of the studies to preprocess, in a <i>n</i> by 2 matrix (<i>n</i> being the number of frames of the PET studies). It is loaded from the "TimeTable" input parameter.</li></ul></div><p>Furthermore you have to create a new variable to save the results of the preprocess: <i>results_model_matrix</i>. This variable will contain one row for each study to be preprocessed and one column for each parameter the model returns. Two additional columns are required to include the mean square error and the correlation coefficient obtained from the fit.</p><p>The implementation of the new model will be included, as previously mentioned, in a new Matlab function <i>QModeling_newModel_Name</i>. Each time a study is preprocessed, the main program will call this function with the following input parameters:</p><div><ul><li>the target and reference TACs: <i>Ct</i>, <i>Cr</i>. Both of them are column vectors.</li></ul></div><div><ul><li>the times: The same <i>times</i> matrix described in the input parameters list for <i>QModeling_preprocessTACs.m</i></li></ul></div><div><ul><li>the input parameters the model needs from the user.</li></ul></div><p>The time of execution will be controlled by the <i>tic-toc</i> commands of Matlab.</p><h2 id="4">STEP 4: Save the results</h2><p><div class="Imageholder2"><img style="width:100%;" src="../figures/Figure4_preproc.png" alt="left" /></div> Once you have run the main script, the results should be saved in a text file called <i>PreprocessingModelName_Results</i> at the <i>save_path</i> directory.</p><p class="footer"><br>
+
+<div class="imageHolder2">
+<div id="leftDiv"><a href="https://www.uma.es"><img style="width:50%;" src="UMA_icon.png" alt="left" /></a></div>
+<div id="rightDiv"><a href="http://www.fguma.es"><img style="width:50%;" src="FGUMA_icon.png" alt="right" /></a></div>
+<div id="middleDiv"><a href="http://www.uimcimes.es"><img style="width:50%;" src="UIM_CIMES_icon.jpeg" alt="middle" /></a></div>
+</div>
+
+</p></div><!--
+##### SOURCE BEGIN #####
+%% _QModeling_preprocessTACs.m_
+% 
+% The common input parameters of this function are:
+%
+% * _TACsfile_: Path to .txt file containing the TACs to be analyzed. This
+% file must be organized as follows. The first row must contain the
+% mid-times of each frame. The following rows are organized in pairs, each
+% pair corresponding to a different PET study. The first row of each pair
+% contains the TACs of the reference region. The second row in the pair
+% contains the TAC of the region of interest of the same PET study.
+%
+% * _TimeTable_: Path to a .txt file containing the start and end times for
+% each frame.
+%
+% * _save_path_: Path to a directory where the results will be saved. If
+% the path is "d", the current directory will be used.
+%
+% * _model_: A string indicating the name of the selected model. Throughout
+% this manual, the new model bo be included will be called "newModel_Name".
+%
+% * _parameters_: A vector containing the minimum information required to
+% preprocess the selected model. Its length and values will depend on the
+% model.
+%
+% Near the end of the script we have written a few code lines and
+% suggestions on the way to implement the new model step by step:
+%
+%% STEP 1: Include your model
+% [Figure 1]
+% Change the _newModel_Name_ text by the name you will give to your model.
+%
+%% STEP 2: Check input parameters
+% [Figure 2]
+% As an option, you could include a check for the number of input
+% parameters, to make sure that it coincides with the number of parameters
+% your model needs. It would also be useful to verify that the values are
+% correct (non-negative values, between the allowed maximum and
+% minimum,...). In that case, the program should display the values of the
+% input parameters like it is done with the implemented models.
+%% STEP 3: Call your own model function
+% [Figure 3]
+% At the start of the script, some variables are created. In this step, you
+% will need the following ones: 
+%
+% * *_data_*: it contains the _TACs_ loaded from the _TACsfile_ input file.
+%
+% * *_num_sim_*: it is the number of studies to preprocess.
+%
+% * *_times_*: it contains the start and end times of each frame of the
+% studies to preprocess, in a _n_ by 2 matrix (_n_ being the number of
+% frames of the PET studies). It is loaded from the "TimeTable" input
+% parameter.
+%
+% Furthermore you have to create a new variable to save the results of the
+% preprocess: _results_model_matrix_. This variable will contain one row
+% for each study to be preprocessed and one column for each parameter the
+% model returns. Two additional columns are required to include the mean
+% square error and the correlation coefficient obtained from the fit.
+%
+% The implementation of the new model will be included, as previously
+% mentioned, in a new Matlab function _QModeling_newModel_Name_. Each time
+% a study is preprocessed, the main program will call this function with
+% the following input parameters:
+%
+% * the target and reference TACs: _Ct_, _Cr_. Both of them are column
+% vectors.
+%
+% * the times: The same _times_ matrix described in the input parameters
+% list for _QModeling_preprocessTACs.m_
+%
+% * the input parameters the model needs from the user.
+%
+% The time of execution will be controlled by the _tic-toc_ commands of
+% Matlab.
+%% STEP 4: Save the results
+% [Figure 4]
+% Once you have run the main script, the results should be saved in a text
+% file called _PreprocessingModelName_Results_ at the _save_path_
+% directory.
+%
+%
+
+
+##### SOURCE END #####
+--></body></html>
